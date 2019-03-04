@@ -59,17 +59,15 @@ foreach($posts_by_category as $res){
     echo "<p>You have " . $res['COUNT(ID)'] . " posts in a category named " . $res['name'] . ".</p>";
 }
 
-/*
-$post_types = perform_query(
+$post_types = $db_search->perform_query(
 "SELECT post_type FROM wp_posts
-WHERE post_type = 'services_offered'",
+GROUP BY post_type",
 array());
-var_dump($post_types);
-*/
-
-
-
-
+echo "<h2>Post Types</h2>";
+echo "<p>You have a total of " . count($post_types) . " post types:</p>";
+foreach($post_types as $post_type){
+   echo "<p>" . $post_type['post_type'] . "</p>";
+}
 
 
 
