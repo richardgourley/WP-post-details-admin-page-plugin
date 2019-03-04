@@ -34,9 +34,9 @@ $db_search =  new DbSearch();
 
 
 $num_published_posts = $db_search->perform_query(
-"SELECT COUNT(ID) FROM wp_posts WHERE post_status = ?",
+"SELECT COUNT(ID) AS NUM_POSTS FROM wp_posts WHERE post_status = ?",
 array('publish'));
-echo "<br>Number of posts marked as published: " . $num_published_posts[0]['COUNT(ID)'];
+echo "<br>Number of posts marked as published: " . $num_published_posts[0]['NUM_POSTS'];
 
 $last_five_posts = $db_search->perform_query(
 "SELECT post_title, post_date FROM wp_posts WHERE post_status = ? ORDER BY post_date DESC LIMIT 5", 
@@ -66,6 +66,10 @@ WHERE post_type = 'services_offered'",
 array());
 var_dump($post_types);
 */
+
+
+
+
 
 
 
