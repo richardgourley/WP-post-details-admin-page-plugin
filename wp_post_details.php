@@ -49,7 +49,6 @@ function form_handling(){
 }
 
 
-/*
+
 add_action('admin_menu', 'wp_post_details_register_admin_page');
 add_action('admin_post_my_form', 'my_form_handling');
-*/
