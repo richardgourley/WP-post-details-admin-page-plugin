@@ -25,7 +25,7 @@ function wp_post_details_register_admin_page()
     //slug - referred to in browser 
     'wp-post-details',
         //optional - callable function
-    'form_handling'
+    'wp_post_details_form_handling'
         //icon optional
         //menu rank optional - default null
     );
@@ -35,29 +35,11 @@ function wp_post_details_register_script(){
     wp_enqueue_script('display-results', plugins_url( 'js/display-results.js' , __FILE__), array(), 1.0, true);
 }
 
-function custom_menu_page_function()
-{
-    require_once dirname(__FILE__) . "/admin_pages/main.php";
-}
-
 // FORM HANDLING WITH PHP
-
-function form_handling(){
-    require_once dirname(__FILE__) . "/admin_pages/main.php";
-    require_once "classes/Model.php";
+function wp_post_details_form_handling(){
+    require_once dirname(__FILE__) . "/classes/model.php";
     $model = new Model();
-
-    if(isset($_POST['last_five_posts'])){
-        $results = $model->get_last_five_posts();
-        require_once dirname(__FILE__) . "/admin_pages/display-results.php";
-    }
-    if(isset($_POST['last_post'])){
-        $results = $model->get_last_post();
-        require_once dirname(__FILE__) . "/admin_pages/display-results.php";
-    }
-    else{
-       require_once dirname(__FILE__) . "/admin_pages/main.php";
-    }
+    require_once dirname(__FILE__) . "/admin_pages/main.php";
     
 }
 
