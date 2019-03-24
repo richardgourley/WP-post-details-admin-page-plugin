@@ -1,10 +1,11 @@
 <?php
-abstract class Model{
+class Model{
     protected $results;
     protected $args;
     protected $query;
+    protected $query_params;
 
-    function __construct($args, $query){
+    function __construct($args, $query, $query_params){
        $this->args = $args;
        $this->query = $query;
     }
@@ -16,7 +17,7 @@ abstract class Model{
 
     function bespoke_query(){
        global $wpdb;
-       $stmt = $wpdb->prepare($this->$query);
+       $stmt = $wpdb->prepare($this->$query, $this->query_params);
     
        $this->results = $wpdb->get_results( $stmt ); //Returns array of objects
     }
