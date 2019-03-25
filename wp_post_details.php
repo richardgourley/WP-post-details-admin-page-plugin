@@ -37,16 +37,32 @@ function wp_post_details_register_script(){
 
 // FORM HANDLING WITH PHP
 function wp_post_details_form_handling(){
+    
     require_once dirname(__FILE__) . "/classes/QueryModel.php";
+    require_once dirname(__FILE__) . "/classes/BespokeQueryModel.php";
     require_once dirname(__FILE__) . "/admin_pages/main.php"; 
 
     if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['last_five_posts'])){
-       echo "LAST 5 POSTS SELECTED!";
+       $query_model = new QueryModel(
+          array('post_type' => 'post',
+                'post_status' => 'publish'
+       )
+       );
+       $query_model->perform_query();
+       $results = $query_model->return_results()->posts;
        require_once dirname(__FILE__) . "/admin_pages/last-five-posts.php";
     } 
 
     if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['last_post'])){
-       echo "LAST SELECTED!";
+       $bespoke_query_model = new BespokeQueryModel( "SELECT * FROM wp_posts 
+        WHERE post_type = %s 
+        AND post_status = %s 
+        ORDER BY post_date DESC
+        LIMIT 1",
+                array('post', 'publish')
+       );
+       $bespoke_query_model->perform_query();
+       $results = $bespoke_query_model->return_results();
        require_once dirname(__FILE__) . "/admin_pages/last-post.php";
     } 
 }
