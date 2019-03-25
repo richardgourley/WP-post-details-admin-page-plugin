@@ -37,13 +37,19 @@ function wp_post_details_register_script(){
 
 // FORM HANDLING WITH PHP
 function wp_post_details_form_handling(){
-    require_once dirname(__FILE__) . "/classes/model.php";
-    $model = new Model();
-    require_once dirname(__FILE__) . "/admin_pages/main.php";
-    
+    require_once dirname(__FILE__) . "/classes/QueryModel.php";
+    require_once dirname(__FILE__) . "/admin_pages/main.php"; 
+
+    if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['last_five_posts'])){
+       echo "LAST 5 POSTS SELECTED!";
+       require_once dirname(__FILE__) . "/admin_pages/last-five-posts.php";
+    } 
+
+    if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['last_post'])){
+       echo "LAST SELECTED!";
+       require_once dirname(__FILE__) . "/admin_pages/last-post.php";
+    } 
 }
-
-
 
 add_action('admin_menu', 'wp_post_details_register_admin_page');
 add_action('admin_post_my_form', 'my_form_handling');
