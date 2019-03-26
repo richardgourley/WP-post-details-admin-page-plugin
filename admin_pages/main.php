@@ -15,3 +15,20 @@
    <input type="submit" name="submit" id="submit" value="Get last post">
 </form>
 
+<form action="<?php echo esc_url( admin_url('admin.php?page=wp-post-details')); ?>" method="post">
+   <input type="hidden" name="action" value="num_posts_category">
+   <input type="hidden" name="num_posts_category" value="1">
+   <input type="submit" name="submit" id="submit" value="Get number of posts per category">
+</form>
+
+<form action="<?php echo esc_url( admin_url('admin.php?page=wp-post-details')); ?>" method="post">
+   <input type="hidden" name="action" value="num_posts_post_type">
+   <input type="hidden" name="num_posts_post_type" value="1">
+   <input type="submit" name="submit" id="submit" value="Get number of posts by post type">
+</form>
+
+<form action="<?php echo esc_url( admin_url('admin.php?page=wp-post-details')); ?>" method="post">
+   <input type="hidden" name="action" value="since_last_post_category">
+   <input type="hidden" name="since_last_post_category" value="1">
+   <input type="submit" name="submit" id="submit" value="How long since you wrote a post for a category">
+</form>
