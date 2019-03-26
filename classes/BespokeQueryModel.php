@@ -13,10 +13,8 @@ class BespokeQueryModel{
       global $wpdb;
       $stmt = $wpdb->prepare($this->query, $this->query_params);
       $this->results = $wpdb->get_results($stmt);
-   }
-
-   public function return_results(){
       return $this->results;
    }
+
    
 }
