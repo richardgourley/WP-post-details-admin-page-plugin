@@ -42,6 +42,7 @@ function wp_post_details_form_handling(){
     require_once dirname(__FILE__) . "/classes/BespokeQueryModel.php";
     require_once dirname(__FILE__) . "/admin_pages/main.php"; 
 
+    //5 most recent posts
     if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['last_five_posts'])){
        $query_model = new QueryModel(
           array('post_type' => 'post',
@@ -53,18 +54,50 @@ function wp_post_details_form_handling(){
        require_once dirname(__FILE__) . "/admin_pages/last-five-posts.php";
     } 
 
+    //most recent post
     if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['last_post'])){
        $bespoke_query_model = new BespokeQueryModel( "SELECT * FROM wp_posts 
-        WHERE post_type = %s 
-        AND post_status = %s 
-        ORDER BY post_date DESC
-        LIMIT 1",
+          WHERE post_type = %s 
+          AND post_status = %s 
+          ORDER BY post_date DESC
+          LIMIT 1",
                 array('post', 'publish')
-       );
-       $bespoke_query_model->perform_query();
-       $results = $bespoke_query_model->return_results();
+          );
+       $results = $bespoke_query_model->perform_query();
        require_once dirname(__FILE__) . "/admin_pages/last-post.php";
     } 
+
+    //get number of posts per category
+    if($_SERVER['REQUEST_METHOD'] == 'POST'  && isset($_POST['num_posts_category'])){
+        $bespoke_query_model = new BespokeQueryModel("SELECT COUNT(ID) AS COUNT, name
+           FROM wp_posts, wp_terms, wp_term_relationships
+           WHERE ID = object_id
+           AND term_id = term_taxonomy_id
+           GROUP BY name
+           ORDER BY COUNT DESC",
+           array( )
+        );
+        $results = $bespoke_query_model->perform_query();
+        require_once dirname(__FILE__) . "/admin_pages/num-posts-category.php";
+    }
+
+    if($_SERVER['REQUEST_METHOD'] == 'POST'  && isset($_POST['num_posts_post_type'])){
+       $bespoke_query_model = new BespokeQueryModel("SELECT COUNT(ID) AS COUNT, post_type
+           FROM wp_posts
+           WHERE post_status = %s
+           GROUP BY post_type
+           ORDER BY COUNT DESC",
+           array( 'publish' )
+        );
+        $results = $bespoke_query_model->perform_query();
+        require_once dirname(__FILE__) . "/admin_pages/num-posts-post-type.php";
+    }
+
+    if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['since_last_post_category'])){
+        $bespoke_query_model = new BespokeQueryModel("", array());
+        $results = $bespoke_query_model->perform_query();
+        require_once dirname(__FILE__) . "/admin_pages/since-last-post-category.php";
+    }
 }
 
 add_action('admin_menu', 'wp_post_details_register_admin_page');
