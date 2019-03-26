@@ -1,8 +1,8 @@
-<h2>Here your 5 most recent posts:</h2>
+<h2>Here are your 5 most recent posts:</h2>
    <?php for($i=0; $i<5; $i++): ?>
-      <h3><b>POST TITLE: </b><?php echo $results[$i]->post_title; ?></h3>
-      <p><b>POST ID: </b><?php echo $results[$i]->ID; ?></p>
-      <p><b>POST TYPE: </b><?php echo $results[$i]->post_type; ?></p>
-      <p><b>DATE: </b><?php echo $results[$i]->post_date; ?></p>
+      <h4>Post Title:  <?php echo $results[$i]->post_title; ?></h4>
+      <h4>Post ID:  <?php echo $results[$i]->ID; ?></h4>
+      <h4>Post Type:  <?php echo $results[$i]->post_type; ?></h4>
+      <h4>DATE:  <?php echo $results[$i]->post_date; ?></h4>
       <p>---------------------------------</p>
    <?php endfor; ?>
