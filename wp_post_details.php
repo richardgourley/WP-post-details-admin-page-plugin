@@ -93,10 +93,16 @@ function wp_post_details_form_handling(){
         require_once dirname(__FILE__) . "/admin_pages/num-posts-post-type.php";
     }
 
-    if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['since_last_post_category'])){
-        $bespoke_query_model = new BespokeQueryModel("", array());
+    if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['since_last_post_type'])){
+        $bespoke_query_model = new BespokeQueryModel("SELECT TIMESTAMPDIFF(DAY, MAX(post_date), NOW()) 
+            AS time_since, post_type 
+            FROM wp_posts 
+            WHERE post_status = 'publish' 
+            GROUP BY post_type 
+            ORDER BY time_since", 
+            array());
         $results = $bespoke_query_model->perform_query();
-        require_once dirname(__FILE__) . "/admin_pages/since-last-post-category.php";
+        require_once dirname(__FILE__) . "/admin_pages/since-last-post-type.php";
     }
 }
 
