@@ -1,4 +1,4 @@
-# WP POST DETAILS ADMIN PAGE PLUGIN
+0# WP POST DETAILS ADMIN PAGE PLUGIN
 NOTE: Work in progress.
 NOTE: dbSearchTest.php is just testing out database searches for the finished plugin.
 
