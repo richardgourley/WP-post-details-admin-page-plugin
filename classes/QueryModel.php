@@ -10,9 +10,6 @@ class QueryModel{
    public function perform_query(){
       $query = new WP_Query($this->args);
       $this->results = $query;
-   }
-
-   public function return_results(){
       return $this->results;
    }
    
