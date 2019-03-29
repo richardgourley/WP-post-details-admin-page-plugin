@@ -1,20 +1,17 @@
-<div style="background-color: white; padding:17px; margin-right:17px; border-radius:10px; margin-top:10px;">
+<div class="wppd_main_page_div">
 <?php global $current_user; ?>
-<h1 style='padding:22px; margin-right:13px;'>Hello there <span style='border-radius:3px;padding:9px;color:white; background-color: #2e3b48'><?php echo $current_user->user_nicename; ?></span></h1>
-<div style="text-align: center; background-color: #2a4d6e; padding:10px; color:white; border-radius:2px;
-margin-left:39px; margin-right:39px; margin-top:20px; margin-bottom: 20px;">
-<h1 style="text-align: center; color:white; font-size:220%;">Welcome to WP Post Details</h1>
+
+<div class="wppd_main_page_greeting">
+<h1>Hello there <span class="wppd_username_box"><?php echo esc_html($current_user->user_nicename); ?></span></h1>
+</div>
+<div class="wppd_main_page_header">
+<h1 class="wppd_main_page_header_font">Welcome to WP Post Details</h1>
 </div>
 
-<div style="padding:20px;">
-<div style="display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 100%;">
-<div style="display: flex;
-  flex-direction: column;
-  flex-basis: 100%;
-  flex: 1;">
+<div class="wppd_menu_buttons_wrapper">
+<div class="wppd_row">
+<div class="wppd_column">
+
 <h2>See your recent posting activity</h2>
 <form action="<?php echo esc_url( admin_url('admin.php?page=wp-post-details')); ?>" method="post">
    <input type="hidden" name="action" value="last_five_posts">
@@ -29,10 +26,7 @@ margin-left:39px; margin-right:39px; margin-top:20px; margin-bottom: 20px;">
 </form>
 </div>
 
-<div style="display: flex;
-  flex-direction: column;
-  flex-basis: 100%;
-  flex: 1;">
+<div class="wppd_column">
 <h2>See how many posts you have</h2>
 <form action="<?php echo esc_url( admin_url('admin.php?page=wp-post-details')); ?>" method="post">
    <input type="hidden" name="action" value="num_posts_category">
@@ -47,10 +41,7 @@ margin-left:39px; margin-right:39px; margin-top:20px; margin-bottom: 20px;">
 </form>
 </div>
 
-<div style="display: flex;
-  flex-direction: column;
-  flex-basis: 100%;
-  flex: 1;">
+<div class="wppd_column">
 <h2>See how long it's been since you posted somewhere</h2>
 <form action="<?php echo esc_url( admin_url('admin.php?page=wp-post-details')); ?>" method="post">
    <input type="hidden" name="action" value="since_last_post_type">
@@ -65,6 +56,9 @@ margin-left:39px; margin-right:39px; margin-top:20px; margin-bottom: 20px;">
 </form>
 
 </div>
-</div>
-</div>
 
+</div><!----End row--->
+
+</div><!----End wrapper--->
+
+</div><!---End main div--->
