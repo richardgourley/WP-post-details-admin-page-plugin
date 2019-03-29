@@ -14,6 +14,10 @@ how many of each post type you have published.
 if(!defined( 'ABSPATH' )) exit;
 
 require dirname(__FILE__) . '/classes/Master.php'; 
+require dirname(__FILE__) . '/classes/Scripts.php'; 
+
+//intializes stylesheet/s
+$wp_post_details_scripts = new WPPostDetailsScripts();
 
 //initializes hooks, callback function for admin page that selects model and view
-$master = new WPPostDetailsMaster();
+$wp_post_details_master = new WPPostDetailsMaster();
