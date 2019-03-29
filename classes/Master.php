@@ -2,7 +2,7 @@
 class WPPostDetailsMaster{
    
    public function __construct(){
-      add_action('admin_menu', array($this, 'register_admin_menu'));
+      add_action('admin_menu', array( $this, 'register_admin_menu' ));
    }
 
    public function register_admin_menu(){
@@ -16,14 +16,14 @@ class WPPostDetailsMaster{
          //slug - referred to in browser 
          'wp-post-details',
          //optional - callable function
-         array($this, 'callback_function_form_handling')
+         array( $this, 'callback_function_form_handling')
          //icon optional
          //menu rank optional - default null
       );
    }
 
    public function callback_function_form_handling(){
-      require_once plugin_dir_path(__DIR__) . "classes/QueryModel.php";
+      require_once plugin_dir_path(__DIR__) . "/classes/QueryModel.php";
       require_once plugin_dir_path(__DIR__) . "/classes/BespokeQueryModel.php";
       require_once plugin_dir_path(__DIR__) . "/classes/FormHandler.php";
       require_once plugin_dir_path(__DIR__) . "/admin_pages/main.php"; 
