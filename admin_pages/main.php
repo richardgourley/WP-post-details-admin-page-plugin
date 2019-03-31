@@ -17,6 +17,7 @@
    <input type="hidden" name="action" value="last_five_posts">
    <input type="hidden" name="last_five_posts" value="1">
    <input type="submit" name="submit" id="submit" value="5 most recent posts">
+   <?php wp_nonce_field( 'last_five_posts_action', 'last_five_posts_nonce' ); ?>
 </form>
 
 <form action="<?php echo esc_url( admin_url('admin.php?page=wp-post-details')); ?>" method="post">
