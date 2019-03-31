@@ -30,7 +30,7 @@ class WPPostDetailsMaster{
 
 
       if($_SERVER['REQUEST_METHOD'] == 'POST'){
-         if(isset($_POST['last_five_posts'])){
+         if(isset($_POST['last_five_posts_nonce']) && wp_verify_nonce( $_POST['last_five_posts_nonce'], 'last_five_posts_action' )){
             $form_handler = new WPPostDetailsFormHandler();
             $form_handler->last_five_posts();
          }
