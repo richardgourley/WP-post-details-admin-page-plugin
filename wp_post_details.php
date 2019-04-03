@@ -21,3 +21,14 @@ $wp_post_details_scripts = new WPPostDetailsScripts();
 
 //initializes hooks, callback function for admin page that selects model and view
 $wp_post_details_master = new WPPostDetailsMaster();
+
+/*
+function hook_css() {
+    global $post; 
+    if($post->ID == 230){
+    	echo "HELLO WORLD!!!";
+    }
+}
+add_action('wp_head', 'hook_css');
+*/
+
