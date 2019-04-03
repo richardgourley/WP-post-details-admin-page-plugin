@@ -24,6 +24,7 @@
    <input type="hidden" name="action" value="last_post">
    <input type="hidden" name="last_post" value="1">
    <input type="submit" name="submit" id="submit" value="Most recent post">
+   <?php wp_nonce_field( 'last_post_action', 'last_post_nonce' ); ?>
 </form>
 </div>
 
