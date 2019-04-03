@@ -34,12 +34,15 @@
    <input type="hidden" name="action" value="num_posts_category">
    <input type="hidden" name="num_posts_category" value="1">
    <input type="submit" name="submit" id="submit" value="Number of posts per category">
+   <?php wp_nonce_field( 'num_posts_category_action', 'num_posts_category_nonce' ); ?>
 </form>
 
 <form action="<?php echo esc_url( admin_url('admin.php?page=wp-post-details')); ?>" method="post">
    <input type="hidden" name="action" value="num_posts_post_type">
    <input type="hidden" name="num_posts_post_type" value="1">
    <input type="submit" name="submit" id="submit" value="Number of posts per post type">
+   <?php wp_nonce_field( 'num_posts_post_type_action', 'num_posts_post_type_nonce' ); ?>
+
 </form>
 </div>
 
@@ -49,12 +52,16 @@
    <input type="hidden" name="action" value="since_last_post_type">
    <input type="hidden" name="since_last_post_type" value="1">
    <input type="submit" name="submit" id="submit" value="Number of days per post type">
+   <?php wp_nonce_field( 'since_last_post_type_action', 'since_last_post_type_nonce' ); ?>
+
 </form>
 
 <form action="<?php echo esc_url( admin_url('admin.php?page=wp-post-details')); ?>" method="post">
    <input type="hidden" name="action" value="since_last_post_category">
    <input type="hidden" name="since_last_post_category" value="1">
    <input type="submit" name="submit" id="submit" value="Number of days per category type">
+   <?php wp_nonce_field( 'since_last_post_category_action', 'since_last_post_category_nonce' ); ?>
+
 </form>
 
 </div>
