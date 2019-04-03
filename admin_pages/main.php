@@ -1,8 +1,7 @@
 <div class="wppd_main_page_div">
-<?php global $current_user; ?>
 
 <div class="wppd_main_page_greeting">
-<h1>Hello there <span class="wppd_username_box"><?php echo esc_html($current_user->user_nicename); ?></span></h1>
+<h1>Hello there <span class="wppd_username_box"><?php echo esc_html(wp_get_current_user()->user_nicename); ?></span></h1>
 </div>
 <div class="wppd_main_page_header">
 <h1 class="wppd_main_page_header_font">Welcome to WP Post Details</h1>
