@@ -40,22 +40,22 @@ class WPPostDetailsMaster{
             $form_handler->last_post();
          }
 
-         if(isset($_POST['num_posts_category'])){
+         if(isset($_POST['num_posts_category_nonce']) && wp_verify_nonce( $_POST['num_posts_category_nonce'], 'num_posts_category_action' )){
             $form_handler = new WPPostDetailsFormHandler();
             $form_handler->num_posts_category();
          }
 
-         if(isset($_POST['num_posts_post_type'])){
+         if(isset($_POST['num_posts_post_type_nonce']) && wp_verify_nonce( $_POST['num_posts_post_type_nonce'], 'num_posts_post_type_action' ) ){
             $form_handler = new WPPostDetailsFormHandler();
             $form_handler->num_posts_post_type();
          }
 
-         if(isset($_POST['since_last_post_type'])){
+         if(isset($_POST['since_last_post_type_nonce']) && wp_verify_nonce( $_POST['since_last_post_type_nonce'], 'since_last_post_type_action' )){
             $form_handler = new WPPostDetailsFormHandler();
             $form_handler->since_last_post_type();
          }
 
-         if(isset($_POST['since_last_post_category'])){
+         if(isset($_POST['since_last_post_category_nonce']) && wp_verify_nonce( $_POST['since_last_post_category_nonce'], 'since_last_post_category_action' )){
             $form_handler = new WPPostDetailsFormHandler();
             $form_handler->since_last_post_category();
          }
