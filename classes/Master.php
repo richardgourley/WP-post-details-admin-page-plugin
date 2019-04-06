@@ -22,10 +22,28 @@ class WPPostDetailsMaster{
       );
    }
 
+   public function overview_data_admin_page(){
+      $bespoke_query_model = new BespokeQueryModel( "SELECT post_type FROM wp_posts WHERE post_status = 'publish'
+         AND post_type != 'post' AND post_type != 'page' AND post_type != 'nav_menu_item' AND post_type != 'attachment'
+         GROUP BY post_type",
+            array()
+         );
+      $cpts = $bespoke_query_model->perform_query();
+      $total_cpts = count($cpts);
+      
+      $bespoke_query_model = new BespokeQueryModel("SELECT COUNT(ID) AS num_posts FROM wp_posts 
+         WHERE post_status = 'publish'",
+            array()
+         );
+      $num_posts = $bespoke_query_model->perform_query();
+      return array( $total_cpts, $num_posts );
+   }
+
    public function callback_function_form_handling(){
       require_once plugin_dir_path(__DIR__) . "/classes/QueryModel.php";
       require_once plugin_dir_path(__DIR__) . "/classes/BespokeQueryModel.php";
       require_once plugin_dir_path(__DIR__) . "/classes/FormHandler.php";
+      $overview_data = $this->overview_data_admin_page();
       require_once plugin_dir_path(__DIR__) . "/admin_pages/main.php"; 
 
 
