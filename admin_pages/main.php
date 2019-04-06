@@ -1,13 +1,15 @@
 <div class="wppd_main_page_div">
 
-<div><p>Overview:</div>
-
 <div class="wppd_main_page_greeting">
 <h1>Hello there <span class="wppd_username_box"><?php echo esc_html(wp_get_current_user()->user_nicename); ?></span></h1>
 </div>
 <div class="wppd_main_page_header">
 <h1 class="wppd_main_page_header_font">Welcome to WP Post Details</h1>
 </div>
+
+<div><strong>Overview:</strong></div>
+<div><p>You have <?php echo esc_html( $overview_data[0] ) ?> custom post types (exluding post, page, attachment etc.)</p></div>
+<div><p>You have <?php echo esc_html( $overview_data[1][0]->num_posts ) ?> published posts.</p></div>
 
 <div class="wppd_menu_buttons_wrapper">
 <div class="wppd_row">
