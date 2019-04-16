@@ -7,7 +7,7 @@
 <h1 class="wppd_main_page_header_font">Welcome to WP Post Details</h1>
 </div>
 
-<div><strong>Overview:</strong></div>
+<div><h3>Overview:</h3></div>
 <div><p>You have <?php echo esc_html( $overview_data[0] ) ?> custom post types (exluding post, page, attachment etc.)</p></div>
 <div><p>You have <?php echo esc_html( $overview_data[1][0]->num_posts ) ?> published posts.</p></div>
 
