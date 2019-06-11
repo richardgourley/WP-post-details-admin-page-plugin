@@ -1,8 +1,8 @@
-0# WP POST DETAILS ADMIN PAGE PLUGIN
+# WP POST DETAILS ADMIN PAGE PLUGIN
 NOTE: Work in progress.
-NOTE: dbSearchTest.php is just testing out database searches for the finished plugin.
+NOTE: dbSearchTest.php is just testing out database searches for the finished plugin. (Written in PHP using PDO rather than in Wordpress directly)
 
-##This is an open source Wordpress plugin project which allows site owners to see which categories or post types they haven't added to for a while.  It aims to make choosing the site owners next post topic easier to choose.
+## This is an open source Wordpress plugin project which allows site owners to see which categories or post types they haven't added to for a while.  It aims to make choosing the site owners next post topic easier to choose.
 The plugin provides an admin page in the dashboard and on opening the page users can see:
 
 * The name, category, type and date of their last 5 posts.
