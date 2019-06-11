@@ -19,11 +19,12 @@ TOPICS COVERED
 * WPDB get results function
 * MySQL joins
 * MySQL join 3 tables
-* MySQL COUNT()
+* MySQL COUNT() method
 * MySQL AS alias
-* WP wp_terms, wp_term_relationships, wp_posts
+* WP database - querying wp_terms, wp_term_relationships, wp_posts
 * WPDB get row function.
 * PHP form creation.
+* wp_nonce fields and verification
 * Sanitizing strings
 * Escaping HTML output
 
